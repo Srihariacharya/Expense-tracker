@@ -44,7 +44,7 @@ const deleteExpense = async (req,res) => {
 
     try{
         await pool.query(
-            'DELETE FROM expenses WHERE id=$1 AND user_id = $1', [id,req.user.id]
+            'DELETE FROM expenses WHERE id=$1 AND user_id = $2', [id,req.user.id]
         )
         res.json({message:'Deleted Successfully'});
     } catch (error) {
