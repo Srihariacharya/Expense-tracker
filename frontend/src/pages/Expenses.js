@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
 import ExpenseForm from '../components/ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
+import Dashboard from '../components/Dashboard';
 import { useNavigate } from 'react-router-dom';
 
 const Expenses = () => {
@@ -14,6 +15,7 @@ const Expenses = () => {
     const fetchExpenses = async () => {
         try {
             const res = await axios.get('http://localhost:3000/api/expenses', {headers: {Authorization: `Bearer ${token}`}});
+            console.log('Data from backend:', res.data);
             setExpenses(res.data);
         } catch (error) {
             console.log("Error Occured", error);
@@ -33,6 +35,8 @@ const Expenses = () => {
         <div>
             <h2>Expenses</h2>
             <button onClick={handleLogout}>Logout</button>
+
+            <Dashboard expenses = {expenses} />
 
             <ExpenseForm 
                onExpensesAdded = {fetchExpenses}
