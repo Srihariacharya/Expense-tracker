@@ -6,7 +6,7 @@ const ExpenseList = ({expenses, onDelete, onEdit}) => {
         const config = {headers: {Authorization: `Bearer ${token}`}};
 
         try {
-            await axios.delete(`http://localhost:3000/api/expenses/${id}`, config);
+            await axios.delete(`https://expense-tracker-backend-cmi2.onrender.com/api/expenses/${id}`, config);
             onDelete();
         } catch (error) {
             console.log("Error",error);

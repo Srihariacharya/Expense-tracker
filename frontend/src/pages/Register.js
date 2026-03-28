@@ -14,7 +14,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/api/auth/register', form);
+            await axios.post('https://expense-tracker-backend-cmi2.onrender.com/api/auth/register', form);
             navigate('/login');
         } catch(err) {
             setError('Registration failed!');

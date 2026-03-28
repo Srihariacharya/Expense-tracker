@@ -16,10 +16,10 @@ const ExpenseForm = ({onExpensesAdded, editData, onEditDone}) => {
 
         try {
             if(editData) {
-                await axios.put(`http://localhost:3000/api/expenses/${editData.id}`, form, config);
+                await axios.put(`https://expense-tracker-backend-cmi2.onrender.com/api/expenses/${editData.id}`, form, config);
                 onEditDone();
             } else {
-                await axios.post('http://localhost:3000/api/expenses', form, config);
+                await axios.post('https://expense-tracker-backend-cmi2.onrender.com/api/expenses', form, config);
                 onExpensesAdded();
             }
             setForm({title:'',amount:'',category:'',date:'',note:''});

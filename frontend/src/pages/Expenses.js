@@ -14,7 +14,7 @@ const Expenses = () => {
 
     const fetchExpenses = async () => {
         try {
-            const res = await axios.get('http://localhost:3000/api/expenses', {headers: {Authorization: `Bearer ${token}`}});
+            const res = await axios.get('https://expense-tracker-backend-cmi2.onrender.com/api/expenses', {headers: {Authorization: `Bearer ${token}`}});
             console.log('Data from backend:', res.data);
             setExpenses(res.data);
         } catch (error) {
