@@ -32,26 +32,35 @@ const Expenses = () => {
     }
 
     return (
-        <div>
-            <h2>Expenses</h2>
-            <button onClick={handleLogout}>Logout</button>
+        <div className="min-h-screen bg-gray-100">
+            <div className="max-w-5xl mx-auto px-6 py-8">
 
-            <Dashboard expenses = {expenses} />
+                <div className="flex justify-between items-center mb-8">
+                    <h1 className="text-3xl font-bold text-gray-800">Expense Tracker</h1>
+                    <button onClick={handleLogout}
+                            className="bg-red-400 text-white px-4 py-2 rounded-lg hover:bg-red-500 transition"        
+                    >
+                        Logout
+                    </button>
+                </div>
 
-            <ExpenseForm 
-               onExpensesAdded = {fetchExpenses}
-               editData = {editData}
-               onEditDone ={() => {
-                setEditData(null)
-                fetchExpenses()
-               }}
-            />
+                    <Dashboard expenses = {expenses} />
 
-            <ExpenseList 
-               expenses = {expenses}
-               onDelete = {fetchExpenses}
-               onEdit = {(expenses) => setEditData(expenses)}
-            />
+                    <ExpenseForm 
+                        onExpensesAdded = {fetchExpenses}
+                        editData = {editData}
+                        onEditDone ={() => {
+                        setEditData(null)
+                        fetchExpenses()
+                      }}
+                    />
+
+                    <ExpenseList 
+                        expenses = {expenses}
+                        onDelete = {fetchExpenses}
+                        onEdit = {(expenses) => setEditData(expenses)}
+                    />
+            </div>
         </div>
     )
 }

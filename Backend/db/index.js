@@ -1,15 +1,16 @@
 const { Pool } = require('pg');
 const pool = new Pool ({
-    user:'postgres',
-    host:'localhost',
-    database:'expense_tracker',
-    password:'sri123',
-    port:'5432'
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+    sel: {rejectUnauthorized: false}
 })
 
 pool.connect((err) => {
     if(err) {
-        console.log("Database Connection failed"+err);
+        console.log("Database Connection failed", err);
     } else {
         console.log("Database Connected Succesfully");
     }

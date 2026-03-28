@@ -24,13 +24,29 @@ const Login = () => {
         }
     }
     return (
-        <div>
-            <h2>Login</h2>
-            {error && <p style={{color: 'red'}}>{error}</p>}
-            <input name="email" placeholder="Enter the email" onChange={handleChange}/>
-            <input name="password" placeholder="Enter the Password" onChange={handleChange}/>
-            <button onClick={handleSubmit}>Login</button>
-            <p>Did not Register!! Register First!! <a href='/register'>Register</a></p>
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+            <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+                <h2 className="text-2xl font-bold tex-center text-gray-800 m-6">Login</h2>
+                {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+                <input name="email" 
+                       placeholder="Enter the email" 
+                       onChange={handleChange}
+                       className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <input name="password"
+                       placeholder="Enter the Password" 
+                       onChange={handleChange}
+                        className="w-full border border-gray-300 rounded-lg px-4 py-2 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                />
+                <button onClick={handleSubmit}
+                        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transistion"
+                >
+                    Login
+                </button>
+                <p className="text-center text-sm text-gray-500 mt-4">
+                    Did not Register!! Register First!! <a href="/register" className="text-blue-500 hover:underline">Register</a>
+                </p>
+            </div>
         </div>
     )
 }
