@@ -24,6 +24,7 @@ const Expenses = () => {
 
     useEffect(() =>{
         fetchExpenses()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
     const handleLogout = () => {
